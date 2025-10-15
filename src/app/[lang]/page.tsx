@@ -31,8 +31,9 @@ export default async function Home({
         <ProfileCard intro={dict.intro} />
         <Interests interests={dict.sections.interests.items} />
 
-        <div className="col-span-8 grid grid-cols-2 gap-6">
-          <div className="col-span-1">
+        {/* Top row: experience cards (shared columns) */}
+        <div className="col-span-12 grid grid-cols-12 gap-6">
+          <div className="col-span-6">
             <ExperienceCard
               title={dict.sections.experience.freelance.title}
               role={dict.sections.experience.freelance.role}
@@ -40,35 +41,47 @@ export default async function Home({
               bullets={dict.sections.experience.freelance.bullets}
             />
           </div>
-          
-          <div className="col-span-1">
-            <MeetzedCard
-              title="Meetzed"
-              role="Graphic Designer"
-              period="2020 - 2021"
-              bullets={[
-                "Collaborated/Supported Lead Designer on projects.",
-                "Branding: Crafted unique brand identities.",
-                "Tools: Used Illustrator, Photoshop & InDesign."
-              ]}
+
+          <div className="col-span-6">
+            <ExperienceCard
+              title={dict.sections.experience.meetzed.title}
+              role={dict.sections.experience.meetzed.role}
+              period={dict.sections.experience.meetzed.period}
+              bullets={dict.sections.experience.meetzed.bullets}
             />
           </div>
-
-          <ToolsList title={dict.sections.designTools} items={["Ai","Ps","Id","Xd"]} />
-          <ToolsList title={dict.sections.editingTools} items={["Ae","Pr","DaVinci"]} />
-          <ToolsList title={dict.sections.languages} items={["��","🇬🇧","🇺🇸"]} />
         </div>
 
-        <div className="col-span-4 grid grid-rows-3 gap-6">
+        {/* Second row: left column tools (50%), right column education (50%) */}
+        <div className="col-span-6 grid grid-rows-3 gap-6">
+          <ToolsList title={dict.sections.designTools} items={[
+            { id: "ai", icon: "https://www.svgrepo.com/show/452147/adobe-illustrator.svg" },
+            { id: "ps", icon: "https://www.svgrepo.com/show/452149/adobe-photoshop.svg" },
+            { id: "id", icon: "https://logodix.com/logo/1025755.png" },
+            { id: "xd", icon: "https://www.svgrepo.com/show/452151/adobe-xd.svg" }
+          ]} />
+          <ToolsList title={dict.sections.editingTools} items={[
+            { id: "ae", text: "Ae" },
+            { id: "pr", text: "Pr" },
+            { id: "davinci", text: "DaVinci" }
+          ]} />
+          <ToolsList title={dict.sections.languages} items={[
+            { id: "in", text: "🇮🇳" },
+            { id: "gb", text: "🇬🇧" },
+            { id: "us", text: "🇺🇸" }
+          ]} />
+        </div>
+
+        <div className="col-span-6">
           <EducationList education={dict.sections.education} />
         </div>
 
         <div className="col-span-12">
-          <Portfolio items={["Bento","Behance","Instagram","Youtube","Dribbble"]} />
+          <Portfolio items={["Bento","Behance","Instagram","Youtube","Dribbble"]} dict={dict} />
         </div>
 
         <div className="col-span-12">
-          <Details details={{ age: "26 years", email: "iamsunilfreelancer.com", phone: "+91 9899052055", country: "India" }} />
+          <Details details={{ age: "26 years", email: "iamsunilfreelancer.com", phone: "+91 9899052055", country: "India" }} dict={dict} />
         </div>
       </main>
     </div>

@@ -12,6 +12,7 @@ type EducationItem = {
   field: string;
   location: string;
   period: string;
+  bullets?: string[];
 };
 
 export type Dictionary = {
@@ -29,6 +30,8 @@ export type Dictionary = {
     languages: string;
   };
   switcher: { label: string; es: string; en: string };
+  portfolio: string;
+  details: string;
 };
 
 const dictionaries: Record<Lang, Dictionary> = {
@@ -70,6 +73,11 @@ const dictionaries: Record<Lang, Dictionary> = {
           field: "Humanidades",
           location: "Delhi Cantonment, India",
           period: "2017",
+          bullets: [
+            "Colaboración: Apoyé al Diseñador Principal en proyectos.",
+            "Branding: Creé identidades de marca únicas.",
+            "Herramientas: Usé Illustrator, Photoshop e InDesign.",
+          ],
         },
         diploma: {
           title: "Diploma",
@@ -88,6 +96,8 @@ const dictionaries: Record<Lang, Dictionary> = {
       languages: "Idiomas",
     },
     switcher: { label: "Idioma", es: "Español", en: "Inglés" },
+    portfolio: "Portafolio",
+    details: "Detalles",
   },
   en: {
     intro:
@@ -127,6 +137,11 @@ const dictionaries: Record<Lang, Dictionary> = {
           field: "Humanities",
           location: "Delhi Cantonment, India",
           period: "2017",
+          bullets: [
+            "Collaboration: Supported Lead Designer on projects.",
+            "Branding: Crafted unique brand identities.",
+            "Tools: Used Illustrator, Photoshop & InDesign.",
+          ],
         },
         diploma: {
           title: "Diploma",
@@ -145,6 +160,8 @@ const dictionaries: Record<Lang, Dictionary> = {
       languages: "Languages",
     },
     switcher: { label: "Language", es: "Spanish", en: "English" },
+    portfolio: "Portfolio",
+    details: "Details",
   },
 };
 
